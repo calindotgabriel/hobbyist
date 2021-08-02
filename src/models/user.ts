@@ -2,14 +2,14 @@ import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
 export interface IUser {
-  _id: String;
-  name: String;
+  _id?: String;
+  name?: String;
 }
 
 const userSchema = new Schema({
   _id: Schema.Types.ObjectId,
   name: String,
-  hobbies: [{ type: Schema.Types.ObjectId, ref: "Hobby" }],
+  // hobbies: [{ type: Schema.Types.ObjectId, ref: "Hobby" }],
 });
 
 // const userSchema: Schema = new Schema<IUser>({
