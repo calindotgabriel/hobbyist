@@ -10,7 +10,7 @@ const handleErr = (err: unknown) => {
   console.error(chalk.red(err));
 };
 
-mongoose.set('debug', true);
+mongoose.set("debug", true);
 
 mongoose
   .connect(URI, {

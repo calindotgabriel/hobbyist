@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 export interface IHobby {
   _id?: String;
-  passionLevel?: Number;
+  passionLevel?: String;
   name?: String;
   year?: Number;
   user?: String;
@@ -12,7 +12,7 @@ export interface IHobby {
 const hobbySchema = Schema({
   _id: Schema.Types.ObjectId,
   user: { type: Schema.Types.ObjectId, ref: "User" },
-  passionLevel: Number,
+  passionLevel: String,
   name: String,
   year: Number,
 });
