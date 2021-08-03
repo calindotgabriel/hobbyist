@@ -70,9 +70,11 @@
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
     "outDir": "./dist",
     "rootDir": "./src",
+    "resolveJsonModule": true,
     "moduleResolution": "node",
   },
   "exclude":[
     "./node_modules"
-  ]
+  ],
+
 }

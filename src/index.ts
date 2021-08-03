@@ -1,6 +1,12 @@
 require("dotenv").config();
 
-import express, { Express, Request, Response, Application, NextFunction } from "express";
+import express, {
+  Express,
+  Request,
+  Response,
+  Application,
+  NextFunction,
+} from "express";
 
 import chalk from "chalk";
 import morgan from "morgan";
@@ -30,15 +36,19 @@ app.use(express.json());
 /** Logging */
 app.use(morgan("dev"));
 
-app.use((err: Error, req: Request, res: Response, next:NextFunction) => {
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   if (err.message) {
     res.status(403);
     res.json({ error: err.message });
   }
- 
+
   next(err);
 });
 
-
 app.use("/users", usersRouter);
 app.use("/hobbies", hobbiesRouter);
+
+import * as swaggerDocument from "../swagger.json";
+import swaggerUi from "swagger-ui-express";
+
+app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
